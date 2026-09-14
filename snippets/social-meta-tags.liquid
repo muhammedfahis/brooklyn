@@ -26,7 +26,7 @@
   <meta property="og:title" content="{{ product.title | strip_html | escape }}">
   <meta property="og:url" content="{{ canonical_url }}">
   <meta property="og:description" content="{{ product.description | strip_html | escape }}">
-  {% for image in product.images reversed limit:3 %}
+  {% for image in product.images reversed limit: 3 %}
     <meta property="og:image" content="http:{{ image.src | img_url: 'grande' }}">
     <meta property="og:image:secure_url" content="https:{{ image.src | img_url: 'grande' }}">
   {% endfor %}
@@ -100,3 +100,13 @@
     <meta property="twitter:image" content="https:{{ article | img_url: '1024x1024' }}">
   {% endif %}
 {% endif %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% for image in product.images reversed limit:3 %}"
+  to: "{% for image in product.images reversed limit: 3 %}"
+  position: 1327..1378
+{% endcomment %}
